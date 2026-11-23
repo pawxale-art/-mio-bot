@@ -25,7 +25,13 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 @bot.event
 async def on_ready():
     print(f"Bot online come {bot.user}")
-
+@bot.event
+async def on_message(message):
+    if message.author.bot:
+        return
+    if message.content.lower() == "ciao":
+        await message.channel.send(f"Ciao {message.author.mention} come stai? 🥰")
+    await bot.process_commands(message)
 @bot.command()
 async def ping(ctx):
     await ctx.send("Pong! 🏓")
