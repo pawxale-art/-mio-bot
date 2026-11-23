@@ -29,5 +29,7 @@ async def on_ready():
 @bot.command()
 async def ping(ctx):
     await ctx.send("Pong! 🏓")
-
+@bot.command()
+async def ciao(ctx):
+    await ctx.send(f"Ciao {ctx.author.mention} come stai? 🥰")
 bot.run(os.getenv("DISCORD_TOKEN"))
